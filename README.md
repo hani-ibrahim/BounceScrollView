@@ -29,7 +29,7 @@ Installation is vey simple you have only one class "EHBounceScrollView" which is
 
 **EHBounceScrollView.h**
 
-`
+```Objective-C
 //
 //  EHBounceScrollView.h
 //  BounceScrollView
@@ -92,11 +92,11 @@ Installation is vey simple you have only one class "EHBounceScrollView" which is
 
 
 @end
-`
+```
 
 **EHBounceScrollView.m**
 
-`
+```Objective-C
 //
 //  EHBounceScrollView.m
 //  BounceScrollView
@@ -258,4 +258,4 @@ Installation is vey simple you have only one class "EHBounceScrollView" which is
 }
 
 @end
-`
+```
