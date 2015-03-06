@@ -12,11 +12,6 @@
 @property (nonatomic) CGPoint beginOffset;
 @property (nonatomic) CGPoint movedTouch;
 
-// We use this method to prevent the resistance to apply for the first time only ... to avoid flicker
-@property (nonatomic) BOOL neglectResistancePositiveX;
-@property (nonatomic) BOOL neglectResistanceNegativeX;
-@property (nonatomic) BOOL neglectResistancePositiveY;
-@property (nonatomic) BOOL neglectResistanceNegativeY;
 @property (nonatomic, assign) BOOL isInActiveGesture;
 @end
 
@@ -102,15 +97,19 @@
 			reachedMaxY = YES;
 		}
 	}
-	
+  
+  if (!self.isInActiveGesture) {
+    return;
+  }
+  
 	// Scroll Resistance X Direction
     if (self.resistanceRatioX != 1 && self.tracking && !reachedMaxX) {
-		if (scrollView.contentOffset.x <= 0 && !self.neglectResistancePositiveX) {
+		if (scrollView.contentOffset.x <= 0) {
 			CGFloat distanceMoved = self.movedTouch.x - self.beginOffset.x;
 			CGPoint offset = scrollView.contentOffset;
 			offset.x =  -distanceMoved / self.resistanceRatioX;
 			scrollView.contentOffset = offset;
-		} else if (scrollView.contentOffset.x >= scrollView.contentSize.width-scrollView.frame.size.width && !self.neglectResistanceNegativeX) {
+		} else if (scrollView.contentOffset.x >= scrollView.contentSize.width-scrollView.frame.size.width) {
 			CGFloat distanceMoved = self.movedTouch.x - (self.beginOffset.x-(scrollView.contentSize.width-scrollView.frame.size.width));
 			CGPoint offset = scrollView.contentOffset;
 			offset.x = scrollView.contentSize.width-scrollView.frame.size.width - distanceMoved / self.resistanceRatioX;
@@ -120,24 +119,18 @@
 	
 	// Scroll Resistance Y Direction
     if (self.resistanceRatioY != 1 && self.tracking && !reachedMaxY) {
-		if (scrollView.contentOffset.y <= 0 && !self.neglectResistancePositiveY) {
+		if (scrollView.contentOffset.y <= 0) {
 			CGFloat distanceMoved = self.movedTouch.y - self.beginOffset.y;
 			CGPoint offset = scrollView.contentOffset;
 			offset.y =  -distanceMoved / self.resistanceRatioY;
 			scrollView.contentOffset = offset;
-		} else if (scrollView.contentOffset.y >= scrollView.contentSize.height-scrollView.frame.size.height && !self.neglectResistanceNegativeY) {
+		} else if (scrollView.contentOffset.y >= scrollView.contentSize.height-scrollView.frame.size.height) {
 			CGFloat distanceMoved = self.movedTouch.y - (self.beginOffset.y-(scrollView.contentSize.height-scrollView.frame.size.height));
 			CGPoint offset = scrollView.contentOffset;
 			offset.y = scrollView.contentSize.height-scrollView.frame.size.height - distanceMoved / self.resistanceRatioY;
 			scrollView.contentOffset = offset;
 		}
 	}
-	
-	// Reset neglect resistances
-	self.neglectResistancePositiveX = NO;
-	self.neglectResistancePositiveY = NO;
-	self.neglectResistanceNegativeX = NO;
-	self.neglectResistanceNegativeY = NO;
 }
 
 #pragma mark - Gesture Recognizer
