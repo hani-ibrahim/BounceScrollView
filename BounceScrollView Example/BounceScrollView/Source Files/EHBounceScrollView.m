@@ -17,6 +17,7 @@
 @property (nonatomic) BOOL neglectResistanceNegativeX;
 @property (nonatomic) BOOL neglectResistancePositiveY;
 @property (nonatomic) BOOL neglectResistanceNegativeY;
+@property (nonatomic, assign) BOOL isInActiveGesture;
 @end
 
 @implementation EHBounceScrollView
@@ -144,18 +145,22 @@
 - (void)panGestureRecognizerDetected:(UIPanGestureRecognizer *)recognizer
 {
 	self.movedTouch = [recognizer translationInView:self];
-}
-
-
-#pragma mark - Touch Events
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	self.beginOffset = self.contentOffset;
-	self.neglectResistancePositiveX = self.contentOffset.x == 0;
-	self.neglectResistancePositiveY = self.contentOffset.y == 0;
-	self.neglectResistanceNegativeX = self.contentOffset.x == self.contentSize.width-self.frame.size.width;
-	self.neglectResistanceNegativeY = self.contentOffset.y == self.contentSize.height-self.frame.size.height;
+  self.beginOffset = self.contentOffset;
+  
+  switch (recognizer.state) {
+    case UIGestureRecognizerStateBegan:
+      self.isInActiveGesture = YES;
+      break;
+      
+    case UIGestureRecognizerStateCancelled:
+    case UIGestureRecognizerStateEnded:
+    case UIGestureRecognizerStateFailed:
+      self.isInActiveGesture = NO;
+      break;
+      
+    default:
+      break;
+  }
 }
 
 @end
