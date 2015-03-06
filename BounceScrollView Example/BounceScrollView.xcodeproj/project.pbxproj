@@ -23,7 +23,7 @@
 		3736C4331852FA0A00763C2F /* BounceScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3736C4321852FA0A00763C2F /* BounceScrollViewTests.m */; };
 		3736C4411853014600763C2F /* EHSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3736C4401853014600763C2F /* EHSettingsViewController.m */; };
 		3736C4431853083C00763C2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3736C4421853083C00763C2F /* QuartzCore.framework */; };
-		3736C448185328A700763C2F /* EHBounceScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3736C447185328A700763C2F /* EHBounceScrollView.m */; };
+		37E788ED1AA9DA9C00E7484C /* EHBounceScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E788EC1AA9DA9C00E7484C /* EHBounceScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +59,8 @@
 		3736C43F1853014600763C2F /* EHSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHSettingsViewController.h; sourceTree = "<group>"; };
 		3736C4401853014600763C2F /* EHSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHSettingsViewController.m; sourceTree = "<group>"; };
 		3736C4421853083C00763C2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3736C446185328A700763C2F /* EHBounceScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHBounceScrollView.h; sourceTree = "<group>"; };
-		3736C447185328A700763C2F /* EHBounceScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHBounceScrollView.m; sourceTree = "<group>"; };
+		37E788EB1AA9DA9C00E7484C /* EHBounceScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHBounceScrollView.h; sourceTree = "<group>"; };
+		37E788EC1AA9DA9C00E7484C /* EHBounceScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHBounceScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 				3736C4161852FA0A00763C2F /* EHAppDelegate.h */,
 				3736C4171852FA0A00763C2F /* EHAppDelegate.m */,
 				3736C4191852FA0A00763C2F /* Main.storyboard */,
-				3736C445185328A700763C2F /* Source Files */,
+				37E788EA1AA9DA9C00E7484C /* Source Files */,
 				3736C449185328B000763C2F /* View Controllers */,
 				3736C41F1852FA0A00763C2F /* Images.xcassets */,
 				3736C40E1852FA0A00763C2F /* Supporting Files */,
@@ -162,15 +162,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3736C445185328A700763C2F /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				3736C446185328A700763C2F /* EHBounceScrollView.h */,
-				3736C447185328A700763C2F /* EHBounceScrollView.m */,
-			);
-			path = "Source Files";
-			sourceTree = "<group>";
-		};
 		3736C449185328B000763C2F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +171,16 @@
 				3736C41D1852FA0A00763C2F /* EHViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		37E788EA1AA9DA9C00E7484C /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				37E788EB1AA9DA9C00E7484C /* EHBounceScrollView.h */,
+				37E788EC1AA9DA9C00E7484C /* EHBounceScrollView.m */,
+			);
+			name = "Source Files";
+			path = "../../Source Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +283,7 @@
 			files = (
 				3736C41E1852FA0A00763C2F /* EHViewController.m in Sources */,
 				3736C4411853014600763C2F /* EHSettingsViewController.m in Sources */,
-				3736C448185328A700763C2F /* EHBounceScrollView.m in Sources */,
+				37E788ED1AA9DA9C00E7484C /* EHBounceScrollView.m in Sources */,
 				3736C4141852FA0A00763C2F /* main.m in Sources */,
 				3736C4181852FA0A00763C2F /* EHAppDelegate.m in Sources */,
 			);
@@ -493,6 +494,7 @@
 				3736C4381852FA0A00763C2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3736C4391852FA0A00763C2F /* Build configuration list for PBXNativeTarget "BounceScrollViewTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +503,7 @@
 				3736C43B1852FA0A00763C2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
